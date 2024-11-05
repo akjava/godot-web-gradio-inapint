@@ -27,14 +27,28 @@ Gradio's Image Editor is often unreliable, and recently, Inpaint requires a guid
 
 # Basic Use Case: Removing Pearls
 
+![image](https://github.com/user-attachments/assets/f460bb1f-62f4-4b15-a067-5473d552c2bb)
+
 ## Using Inpaint
 
-1. Paint over the pearls and send to OpenCVInpaint 
-2. Further refine the inpaint result 
-3. Example using Flux.1-mask-inapint 
+1. Paint over the pearls and send to OpenCVInpaint
+   
+![image](https://github.com/user-attachments/assets/c82002a2-7e2a-4658-aeeb-3f9e11c81166)
+
+2. Further refine the inpaint result
+
+![image](https://github.com/user-attachments/assets/39879d04-33c2-451b-8267-5f1f5312d5df)
+   
+3. Example using Flux.1-mask-inapint
+
+![image](https://github.com/user-attachments/assets/ccfeb158-7071-4976-bcc1-72e9dab889bc)
+
+Erase neckless again...
 
 ## Using Smudge
 
-Simply smudge the pearls (a visual example here is also recommended).
+Simply smudge the pearls ,maybe inpaint version help you
+
+![image](https://github.com/user-attachments/assets/d795a8f5-9102-4537-9610-a202b0f1f24f)
 
 
