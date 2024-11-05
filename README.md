@@ -51,4 +51,8 @@ Simply smudge the pearls ,maybe inpaint version help you
 
 ![image](https://github.com/user-attachments/assets/d795a8f5-9102-4537-9610-a202b0f1f24f)
 
+## License
+Codes are MIT License
+
+Images are generated with <a href="https://huggingface.co/black-forest-labs/FLUX.1-schnell">FLUX.1-schnell</a> and licensed under <a href="http://www.apache.org/licenses/LICENSE-2.0">the Apache 2.0 License</a>
 
