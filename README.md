@@ -3,6 +3,7 @@ The English could use some improvements for clarity and flow. Here's a revised v
 # Godot Web Gradio Inpaint
 
 ## What is this?
+[Huggingface Space](https://huggingface.co/spaces/Akjava/godot-web-gradio-inapint)
 
 Gradio's Image Editor is often unreliable, and recently, Inpaint requires a guide image. This application allows you to create guide images and masks, then send them to inpainting Hugging Face Spaces like OpenCVInapint.  While it *could* technically access any API-enabled space, this tool is still in alpha and currently only connects to my own Hugging Face Space.
 
