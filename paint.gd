@@ -287,6 +287,9 @@ func _on_submit_button_pressed():
 	
 		inpaint_image = base_image
 		return
+	else:
+		find_child("OutputTextureRect2").set_texture(ImageTexture.create_from_image(mask_image))
+		find_child("OutputTextureRect1").set_texture(ImageTexture.create_from_image(composite_image))
 		
 	if not is_web_os:
 		OS.shell_open("http://localhost:%s"%[server_port])
