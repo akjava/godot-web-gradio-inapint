@@ -1,0 +1,306 @@
+[gd_scene load_steps=8 format=3 uid="uid://eiysddvsch4b"]
+
+[ext_resource type="Script" path="res://paint.gd" id="1_b180h"]
+[ext_resource type="Texture2D" uid="uid://c1130eg1aoirl" path="res://files/Eraser.svg" id="2_7cb73"]
+[ext_resource type="Script" path="res://draw_sprite2d.gd" id="2_lxtfs"]
+[ext_resource type="Texture2D" uid="uid://cut7guh4jvih6" path="res://files/ColorPicker.svg" id="3_745dp"]
+[ext_resource type="Texture2D" uid="uid://5xp5m6fsv8kx" path="res://files/EditInternal.svg" id="3_mqsrw"]
+[ext_resource type="Texture2D" uid="uid://sib4eq6886ds" path="res://files/Paint.svg" id="4_8tjf6"]
+[ext_resource type="Script" path="res://submit_button.gd" id="6_abs1w"]
+
+[node name="Paint" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_b180h")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="EraseButton" type="Button" parent="ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Erase"
+icon = ExtResource("2_7cb73")
+
+[node name="LayerButton" type="Button" parent="ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Layer"
+icon = ExtResource("3_mqsrw")
+
+[node name="ColorButtons" type="HBoxContainer" parent="ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Color"
+color = Color(0.356863, 0.243137, 0.192157, 1)
+
+[node name="HSlider" type="HSlider" parent="ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+size_flags_vertical = 4
+min_value = 1.0
+max_value = 128.0
+value = 32.0
+
+[node name="PickButton" type="Button" parent="ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Pick"
+icon = ExtResource("3_745dp")
+
+[node name="PenButton" type="Button" parent="ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Pen"
+icon = ExtResource("4_8tjf6")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="SignInButton" type="Button" parent="ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+disabled = true
+text = "SighIn"
+
+[node name="SignOutButton" type="Button" parent="ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+disabled = true
+text = "SighOut"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Alpha quality"
+
+[node name="SmudgeButton" type="Button" parent="ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Smudge"
+
+[node name="SmudgeButton2" type="Button" parent="ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2"]
+visible = false
+layout_mode = 2
+text = "UnSmudge"
+
+[node name="Label" type="Label" parent="ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Blend"
+
+[node name="BlendSmudgeSlider" type="HSlider" parent="ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+value = 0.3
+
+[node name="Label2" type="Label" parent="ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Factor"
+
+[node name="FactorSmudgeSlider" type="HSlider" parent="ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+value = 0.9
+
+[node name="Label4" type="Label" parent="ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Inpaint-St"
+
+[node name="InpaintStrengthSlider" type="HSlider" parent="ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+size_flags_vertical = 4
+min_value = 0.01
+max_value = 0.75
+step = 0.01
+value = 0.75
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="PromptLineEdit" type="LineEdit" parent="ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "a girl"
+
+[node name="UrlOptionButton" type="OptionButton" parent="ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+selected = 0
+item_count = 4
+popup/item_0/text = "Apply Drawing"
+popup/item_1/text = "Akjava/OpenCVInpaintCPU"
+popup/item_1/id = 1
+popup/item_2/text = "Akjava/flux1-schnell-mask-inpaint"
+popup/item_2/id = 2
+popup/item_3/text = "Akjava/flux1-schnell-img2img"
+popup/item_3/id = 3
+
+[node name="UrlLineEdit" type="LineEdit" parent="ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer3"]
+visible = false
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Akjava/OpenCVInpaintCPU"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+
+[node name="SubmitButton" type="Button" parent="ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer3/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Submit"
+script = ExtResource("6_abs1w")
+
+[node name="Canvas" type="Control" parent="ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("2_lxtfs")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ScrollContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+text = "Output"
+
+[node name="TabContainer" type="TabContainer" parent="ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+current_tab = 3
+
+[node name="CompositeImage" type="VBoxContainer" parent="ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer2/TabContainer"]
+visible = false
+custom_minimum_size = Vector2(512, 512)
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="OutputTextureRect1" type="TextureRect" parent="ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer2/TabContainer/CompositeImage"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer2/TabContainer/CompositeImage"]
+layout_mode = 2
+
+[node name="Download1Button" type="Button" parent="ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer2/TabContainer/CompositeImage/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Download"
+
+[node name="MaskImage" type="VBoxContainer" parent="ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer2/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="OutputTextureRect2" type="TextureRect" parent="ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer2/TabContainer/MaskImage"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer2/TabContainer/MaskImage"]
+layout_mode = 2
+
+[node name="Download2Button" type="Button" parent="ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer2/TabContainer/MaskImage/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Download"
+
+[node name="ResultImage" type="VBoxContainer" parent="ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer2/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="ErrorLineEdit" type="LineEdit" parent="ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer2/TabContainer/ResultImage"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0, 0, 1)
+
+[node name="OutputTextureRect3" type="TextureRect" parent="ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer2/TabContainer/ResultImage"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer2/TabContainer/ResultImage"]
+layout_mode = 2
+
+[node name="CopyToBaseButton" type="Button" parent="ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer2/TabContainer/ResultImage/HBoxContainer2"]
+layout_mode = 2
+text = "<< Copy To Base"
+
+[node name="Download3Button" type="Button" parent="ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer2/TabContainer/ResultImage/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Download"
+
+[node name="Help" type="VBoxContainer" parent="ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer2/TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 3
+
+[node name="Label" type="Label" parent="ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer2/TabContainer/Help"]
+layout_mode = 2
+text = "Alpha version detail are "
+
+[node name="GithubButton" type="Button" parent="ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer2/TabContainer/Help"]
+layout_mode = 2
+text = "https://github.com/akjava/godot-web-gradio-inapint"
+
+[connection signal="pressed" from="ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/EraseButton" to="." method="_on_erase_button_pressed"]
+[connection signal="pressed" from="ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/LayerButton" to="." method="_on_layer_button_pressed"]
+[connection signal="color_changed" from="ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/ColorPickerButton" to="." method="_on_color_picker_button_color_changed"]
+[connection signal="pressed" from="ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/ColorPickerButton" to="." method="_on_color_picker_button_pressed"]
+[connection signal="value_changed" from="ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/HSlider" to="." method="_on_h_slider_value_changed"]
+[connection signal="pressed" from="ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/PickButton" to="." method="_on_pick_button_pressed"]
+[connection signal="pressed" from="ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/PenButton" to="." method="_on_pen_button_pressed"]
+[connection signal="pressed" from="ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/HBoxContainer/SignInButton" to="." method="_on_sign_in_button_pressed"]
+[connection signal="pressed" from="ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/HBoxContainer/SignOutButton" to="." method="_on_sign_out_button_pressed"]
+[connection signal="pressed" from="ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2/SmudgeButton" to="." method="_on_smudge_button_pressed"]
+[connection signal="value_changed" from="ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2/BlendSmudgeSlider" to="." method="_on_blend_smudge_slider_value_changed"]
+[connection signal="value_changed" from="ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2/FactorSmudgeSlider" to="." method="_on_factor_smudge_slider_value_changed"]
+[connection signal="value_changed" from="ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2/InpaintStrengthSlider" to="." method="_on_factor_smudge_slider_value_changed"]
+[connection signal="text_changed" from="ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer3/PromptLineEdit" to="." method="_on_prompt_line_edit_text_changed"]
+[connection signal="pressed" from="ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer3/HBoxContainer/SubmitButton" to="." method="_on_submit_button_pressed"]
+[connection signal="pressed" from="ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer2/TabContainer/CompositeImage/HBoxContainer/Download1Button" to="." method="_on_download_1_button_pressed"]
+[connection signal="pressed" from="ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer2/TabContainer/MaskImage/HBoxContainer2/Download2Button" to="." method="_on_download_2_button_pressed"]
+[connection signal="pressed" from="ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer2/TabContainer/ResultImage/HBoxContainer2/CopyToBaseButton" to="." method="_on_copy_to_base_button_pressed"]
+[connection signal="pressed" from="ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer2/TabContainer/ResultImage/HBoxContainer2/Download3Button" to="." method="_on_download_3_button_pressed"]
+[connection signal="pressed" from="ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer2/TabContainer/Help/GithubButton" to="." method="_on_github_button_pressed"]

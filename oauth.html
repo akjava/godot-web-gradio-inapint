@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My Template</title>
+        <meta charset="UTF-8">
+        <script crossorigin='anonymous' src="https://unpkg.com/es-module-shims@1.7.0/dist/es-module-shims.js"></script>
+		<script  type="importmap">
+			{
+				"imports": {
+					"@huggingface/hub": "https://cdn.jsdelivr.net/npm/@huggingface/hub@0.13.0/+esm",
+                    "@gradio/client":"https://cdn.jsdelivr.net/npm/@gradio/client/dist/index.min.js"
+				}
+			}
+		</script>
+    </head>
+    <body>
+        <canvas id="canvas"></canvas>
+        <script  src = "ghugging.js"></script>
+
+        <script type="module">
+        window.oauthLoginUrl = oauthLoginUrl;
+        window.oauthHandleRedirectIfPresent = oauthHandleRedirectIfPresent;
+        import { oauthLoginUrl, oauthHandleRedirectIfPresent } from "@huggingface/hub";
+        import { Client,handle_file } from "@gradio/client";
+
+        window.Client = Client;
+        window.Buffer = ArrayBuffer
+        //console.log(Buffer)
+        //console.log(window.Buffer)
+        console.log(window.GHugging)
+        console.log(Client)
+        console.log(window.Buffer)
+        </script>
+
+        <script src="$GODOT_URL"></script>
+        <script>
+            var engine = new Engine($GODOT_CONFIG);
+            engine.startGame();
+        </script>
+    </body>
+</html>

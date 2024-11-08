@@ -55,4 +55,3 @@ Simply smudge the pearls ,maybe inpaint version help you
 Codes are MIT License
 
 Images are generated with <a href="https://huggingface.co/black-forest-labs/FLUX.1-schnell">FLUX.1-schnell</a> and licensed under <a href="http://www.apache.org/licenses/LICENSE-2.0">the Apache 2.0 License</a>
-
